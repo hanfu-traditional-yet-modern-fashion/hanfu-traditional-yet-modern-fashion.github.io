@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Hanfu: Traditional Yet Modern Fashion</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Header font -->
+	    <link rel="preconnect" href="https://fonts.gstatic.com">
+	    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300&display=swap" rel="stylesheet">  
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+		<nav class="navbar mt-1" style="background-color: rgb(255, 181, 166)">
+            <!--
+            <div>
+                <img src="flower.png" width="50" class="mr-2">-->
+            <a class="navbar-brand" href="#" style="color: white;">Hanfu: Traditional Yet Modern Fashion</a>
+			<ul class="nav">
+				<li class="nav-item active">
+					<a class="nav-link text-center py-1" href="index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-center py-1" href="intro.html">Intro</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-center py-1" href="#">Sources</a>
+				</li>
+			</ul>
+            <div class="float-right">
+                <a class="navbar-brand" href="#" style="color: rgb(255, 181, 166);">Hanfu: Traditional Yet Modern Fashion</a>
+            </div>
+  		</nav>
+        <!-- Instruction Line -->
+        <div class="card py-1 px-1 my-3" style="margin-left: 30%; margin-right: 30%; background-color:rgb(249, 135, 137); border:none">
+            <p class="text-center my-0" style="color:white">Drag and drop the dresses onto the figure to learn more!</p>
+        </div>
+        <!-- Dress Up -->
+        <div class="card mx-4 mt-3" style="background-color:rgb(255, 213, 205); border:none">
+            <div class="card-body">
+                <div class="row pl-2 pr-0">
+                    <div class="col px-0 ml-2 mr-0  text-center dragme">
+                        <img src="1.png" id="qixiong" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                    </div>
+                    <div class="col px-0 mx-0 text-center dragme">
+                        <img src="2.png" id="qiyao" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                    </div>
+                    <div class="col px-0 mx-0 text-center" id="dropZone"ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a id="center" href="#"><img id="doll" src="center.png" height="400"/></a>
+                    </div>
+                    <div class="col px-0 mx-0 text-center dragme">
+                        <img src="3.png" id="aoqun" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                    </div>
+                    <div class="col px-0 mr-2 ml-0 text-center dragme">
+                        <img src="4.png" id="quju" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Info Modal -->
+        <div class="modal fade" id="infoModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalTitle">Title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <td class="pr-2" width="50%">
+                                <img id="infoModalImg" src="1 head.png" style="display:block" width="100%"/>
+                            </td>
+                            <td class="pl-2" width="50%">
+                                <span class="my-0" width="100%" id="infoModalTxt" style="float:right; max-height:555px; overflow-y:auto; vertical-align:middle"></span>
+                            </td>
+                        </table>
+                    </div> 
+                    <div class="modal-footer">
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <script>
+            function drag(event){
+                event.dataTransfer.setDragImage(document.getElementById(event.target.id), 150, 250);
+                event.dataTransfer.setData("text", event.target.id)
+            }
+            function allowDrop(event) {
+                event.preventDefault();
+            }
+            function drop(event){
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+                target = document.getElementById("dropZone");
+
+                var dollLink = document.getElementById("center");
+                dollLink.setAttribute("data-toggle", "modal");
+                dollLink.href = "#infoModal";
+                var dollImg = document.getElementById("doll");
+                
+                var modalTitle = "";
+                var modalImgSrc = "";
+                var modalTxt = "";
+                if(data==="qixiong"){
+                    dollImg.src = "1 head.png";
+                    modalTitle = "Dui-Jin Qixiong Ruqun (对襟齐胸襦裙)";
+                    modalImgSrc = "1 head w bg.png";
+                    modalTxt = "Dui-Jin (对襟) is a style where the two sides of the collar are parallel and"
+                            + " vertically straight next to each other rather than crossing. This is worn "
+                            + "with a Mo-Xiong (抹胸) underneath which is like a camisole to cover the chest.<br><br>"
+
+                            + "Ruqun (襦裙) is a category of hanfu where the top shirt and the bottom skirt are separate"
+                            + " pieces. The top is often shorter while the skirt takes up most of the length. The way it’s"
+                            + " further categorized is based on where the line between the two pieces is placed.<br><br>"
+
+                            + "In this style, the separation between the top shirt and the longer skirt "
+                            + "is located at the chest, thus the name Qixiong Ruqun (齐胸襦裙), which means a Ruqun that is" 
+                            + " aligned at the waist. The shirt is normal length but most of it is"
+                            + " covered as the skirt starts at the chest area and goes all the way down." 
+                            + " The Dui-Jin collar is the most common"
+                            + " collar style for this type of dress but it is also available with Jiao-Ling (交领) collar"
+                            + " (See the third dress aoqun (袄裙) for more explanation on this type of collar).";
+                }else if(data==="qiyao"){
+                    dollImg.src = "2 head.png";
+                    modalTitle = "Dui-Jin Qiyao Ruqun (对襟齐腰襦裙)";
+                    modalImgSrc = "2 head w bg.png";
+                    modalTxt = "Dui-Jin (对襟) is a style where the two sides of the collar are parallel and"
+                            + " vertically straight next to each other rather than crossing. This is worn "
+                            + "with a Mo-Xiong (抹胸) underneath which is like a camisole to cover the chest.<br><br>"
+
+                            + "Ruqun (襦裙) is a category of hanfu where the top shirt and the bottom skirt are separate"
+                            + " pieces. The top is often shorter while the skirt takes up most of the length. The way it’s"
+                            + " further categorized is based on where the line between the two pieces is placed.<br><br>"
+                            
+                            + "This is a Qiyao Ruqun (齐腰襦裙), which is a type of Ruqun where the separation between the shorter" 
+                            + " shirt and the longer skirt is located at the waist." 
+                            + " The skirt and the horizontal band at the waist are one long" 
+                            + " piece of continuous fabric that wraps around the waist. Some versions may also have two separate" 
+                            + " pieces for the front and back that you tie together to form the skirt. Both Dui-Jin and Jiao-Ling collars " 
+                            + "(See the third dress aoqun (袄裙) for more explanation on this type of collar) are fairly" 
+                            + " common for this type of dress.";
+                }else if(data==="aoqun"){
+                    dollImg.src = "3 head.png";
+                    modalTitle = "Jiao-Ling Aoqun (交领袄裙)";
+                    modalImgSrc = "3 head.png";
+                    modalTxt = "Jiao-Ling (交领) means that the collar is crossing over each other. Within the traditional " 
+                                + "clothing of Han China, the crossed collars are always folded in You-Ren (右衽) style which"
+                                + " means that the right collar (right of the wearer, left of the viewer) is the layer on" 
+                                + " the bottom while the left layer folds on top.<br><br>"
+
+                                + "An aoqun (袄裙) is one where the top is a coat and is layered over the skirt rather than tucked inside." 
+                                + " This type of dress is available in a variety of different collar styles but the Jiao-Ling one " 
+                                + "as shown here is one of the most popular. It also commonly has a Pipa sleeve (琵琶袖) which is " 
+                                + "named after the resemblance of the sleeve shape to the traditional Chinese instrument pipa. " 
+                                + "The skirt here is called a Ma Mian Qun (马面裙) which has a larger rectangular area in the front" 
+                                + " and back while the rest has built-in pleats (there are actually four of these rectangular areas" 
+                                + " but only two are visible as the others are folded underneath).";
+                }else{
+                    dollImg.src = "4 head.png";
+                    modalTitle = "Guang-Xiu Quju (广袖曲裾)";
+                    modalImgSrc = "4 head w bg.png";
+                    modalTxt = "Shen-Yi (深衣) is different from the other styles shown in that the top and the skirt are connected. " 
+                                + "They are created separately" 
+                                + " and sewn together at the end. These are usually worn with inner clothing made up of a Zhong-Yi" 
+                                + " (中衣), which is an undershirt, combined with either a Zhong-Qun (中裙)—an inner skirt—or Zhong-Ku" 
+                                + " (中裤), inner pants. The white peeking out the top of the collar here is part of a Zhong-Yi." 
+                                + " Also, the initial outfit shown on the figure in the game is actually a Zhong-Yi and Zhong-Ku " 
+                                + "combination.<br><br>"
+                    
+                                + "A Quju (曲裾) is a type of Shen-Yi where the lower half of the dress is in the shape of a wide " 
+                                + "triangle that is wrapped around the body multiple times and secured at the waist. The layers of" 
+                                + " the dress shown here around the waist and thigh are all one continuous piece of fabric that is" 
+                                + " connected with the shirt part of the dress. This one has a wide sleeve called Guang-Xiu (广袖)" 
+                                + " which is fit for more formal occasions such as ceremonies.";
+                }
+                
+                document.getElementById("infoModalTitle").innerHTML = modalTitle;
+                document.getElementById("infoModalImg").src = modalImgSrc;
+                document.getElementById("infoModalTxt").innerHTML = modalTxt;
+                $("#infoModal").modal("toggle");
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
