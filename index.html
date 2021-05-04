@@ -50,19 +50,19 @@
             <div class="card-body">
                 <div class="row pl-2 pr-0">
                     <div class="col px-0 ml-2 mr-0  text-center dragme">
-                        <img src="1.png" id="qixiong" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <img src="imgs/1.png" id="qixiong" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
                     </div>
                     <div class="col px-0 mx-0 text-center dragme">
-                        <img src="2.png" id="qiyao" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <img src="imgs/2.png" id="qiyao" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
                     </div>
                     <div class="col px-0 mx-0 text-center" id="dropZone"ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <a id="center" href="#"><img id="doll" src="center.png" height="400"/></a>
+                        <a id="center" href="#"><img id="doll" src="imgs/center.png" height="400"/></a>
                     </div>
                     <div class="col px-0 mx-0 text-center dragme">
-                        <img src="3.png" id="aoqun" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <img src="imgs/3.png" id="aoqun" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
                     </div>
                     <div class="col px-0 mr-2 ml-0 text-center dragme">
-                        <img src="4.png" id="quju" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <img src="imgs/4.png" id="quju" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <div class="modal-body">
                         <table>
                             <td class="pr-2" width="50%">
-                                <img id="infoModalImg" src="1 head.png" style="display:block" width="100%"/>
+                                <img id="infoModalImg" src="imgs/1 head.png" style="display:block" width="100%"/>
                             </td>
                             <td class="pl-2" width="50%">
                                 <span class="my-0" width="100%" id="infoModalTxt" style="float:right; max-height:555px; overflow-y:auto; vertical-align:middle"></span>
@@ -114,9 +114,9 @@
                 var modalImgSrc = "";
                 var modalTxt = "";
                 if(data==="qixiong"){
-                    dollImg.src = "1 head.png";
+                    dollImg.src = "imgs/1 head.png";
                     modalTitle = "Dui-Jin Qixiong Ruqun (对襟齐胸襦裙)";
-                    modalImgSrc = "1 head w bg.png";
+                    modalImgSrc = "imgs/1 head w bg.png";
                     modalTxt = "Dui-Jin (对襟) is a style where the two sides of the collar are parallel and"
                             + " vertically straight next to each other rather than crossing. This is worn "
                             + "with a Mo-Xiong (抹胸) underneath which is like a camisole to cover the chest.<br><br>"
@@ -133,9 +133,9 @@
                             + " collar style for this type of dress but it is also available with Jiao-Ling (交领) collar"
                             + " (See the third dress aoqun (袄裙) for more explanation on this type of collar).";
                 }else if(data==="qiyao"){
-                    dollImg.src = "2 head.png";
+                    dollImg.src = "imgs/2 head.png";
                     modalTitle = "Dui-Jin Qiyao Ruqun (对襟齐腰襦裙)";
-                    modalImgSrc = "2 head w bg.png";
+                    modalImgSrc = "imgs/2 head w bg.png";
                     modalTxt = "Dui-Jin (对襟) is a style where the two sides of the collar are parallel and"
                             + " vertically straight next to each other rather than crossing. This is worn "
                             + "with a Mo-Xiong (抹胸) underneath which is like a camisole to cover the chest.<br><br>"
@@ -152,9 +152,9 @@
                             + "(See the third dress aoqun (袄裙) for more explanation on this type of collar) are fairly" 
                             + " common for this type of dress.";
                 }else if(data==="aoqun"){
-                    dollImg.src = "3 head.png";
+                    dollImg.src = "imgs/3 head.png";
                     modalTitle = "Jiao-Ling Aoqun (交领袄裙)";
-                    modalImgSrc = "3 head.png";
+                    modalImgSrc = "imgs/3 head.png";
                     modalTxt = "Jiao-Ling (交领) means that the collar is crossing over each other. Within the traditional " 
                                 + "clothing of Han China, the crossed collars are always folded in You-Ren (右衽) style which"
                                 + " means that the right collar (right of the wearer, left of the viewer) is the layer on" 
@@ -168,9 +168,9 @@
                                 + " and back while the rest has built-in pleats (there are actually four of these rectangular areas" 
                                 + " but only two are visible as the others are folded underneath).";
                 }else{
-                    dollImg.src = "4 head.png";
+                    dollImg.src = "imgs/4 head.png";
                     modalTitle = "Guang-Xiu Quju (广袖曲裾)";
-                    modalImgSrc = "4 head w bg.png";
+                    modalImgSrc = "imgs/4 head w bg.png";
                     modalTxt = "Shen-Yi (深衣) is different from the other styles shown in that the top and the skirt are connected. " 
                                 + "They are created separately" 
                                 + " and sewn together at the end. These are usually worn with inner clothing made up of a Zhong-Yi" 
