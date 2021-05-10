@@ -38,6 +38,7 @@
 				</li>
 			</ul>
             <div class="float-right">
+                <!-- "invisible" repeat title on the right of nav items to center the nav items lkasjdfa -->
                 <p class="navbar-brand my-0" href="#" style="color: rgb(255, 181, 166);">Hanfu: Traditional Yet Modern Fashion</p>
             </div>
   		</nav>
@@ -49,20 +50,22 @@
         <div class="card mx-4 mt-3" style="background-color:rgb(255, 213, 205); border:none">
             <div class="card-body">
                 <div class="row pl-2 pr-0">
+                    <!-- the images are "links" so the hand symbol will appear over them -->
                     <div class="col px-0 ml-2 mr-0  text-center dragme">
-                        <img src="imgs/1.png" id="qixiong" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <a href="#"><img src="imgs/1.png" id="qixiong" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/></a>
                     </div>
                     <div class="col px-0 mx-0 text-center dragme">
-                        <img src="imgs/2.png" id="qiyao" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <a href="#"><img src="imgs/2.png" id="qiyao" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/></a>
                     </div>
+                    <!-- center doll -->
                     <div class="col px-0 mx-0 text-center" id="dropZone"ondrop="drop(event)" ondragover="allowDrop(event)">
                         <a id="center" href="#"><img id="doll" src="imgs/center.png" height="400"/></a>
                     </div>
                     <div class="col px-0 mx-0 text-center dragme">
-                        <img src="imgs/3.png" id="aoqun" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <a href="#"><img src="imgs/3.png" id="aoqun" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/></a>
                     </div>
                     <div class="col px-0 mr-2 ml-0 text-center dragme">
-                        <img src="imgs/4.png" id="quju" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/>
+                        <a href="#"><img src="imgs/4.png" id="quju" class="mx-0 px-0" draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" height="400"/></a>
                     </div>
                 </div>
             </div>
@@ -79,22 +82,25 @@
                     </div>
                     <div class="modal-body">
                         <table>
+                            <!-- table so the image will always take up half the horizontal space
+                                 no matter how big the window is -->
                             <td class="pr-2" width="50%">
                                 <img class="unsaveable" id="infoModalImg" src="imgs/1 head.png" style="display:block" width="100%"/>
                             </td>
                             <td class="pl-2" width="50%">
+                                <!-- span for text to center vertically -->
                                 <span class="my-0" width="100%" id="infoModalTxt" style="float:right; max-height:555px; overflow-y:auto; vertical-align:middle"></span>
                             </td>
                         </table>
-                    </div> 
-                    <div class="modal-footer">
                     </div>
                 </div>  
             </div>
         </div>
         <script>
             function drag(event){
+                // show dress as you drag
                 event.dataTransfer.setDragImage(document.getElementById(event.target.id), 150, 250);
+                // tell drop zone which dress was dragged and dropped
                 event.dataTransfer.setData("text", event.target.id)
             }
             function allowDrop(event) {
@@ -105,6 +111,7 @@
                 var data = event.dataTransfer.getData("text");
                 target = document.getElementById("dropZone");
 
+                // make center doll into link that can open modal
                 var dollLink = document.getElementById("center");
                 dollLink.setAttribute("data-toggle", "modal");
                 dollLink.href = "#infoModal";
@@ -114,7 +121,9 @@
                 var modalImgSrc = "";
                 var modalTxt = "";
                 if(data==="qixiong"){
+                    // change doll to version with dress (transparent bg)
                     dollImg.src = "imgs/1 head.png";
+                    // all info for the modal, like title, image, text
                     modalTitle = "Dui-Jin Qixiong Ruqun (对襟齐胸襦裙)";
                     modalImgSrc = "imgs/1 head w bg.png";
                     modalTxt = "Dui-Jin (对襟) is a style where the two sides of the collar are parallel and"
@@ -185,13 +194,15 @@
                                 + " connected with the shirt part of the dress. This one has a wide sleeve called Guang-Xiu (广袖)" 
                                 + " which is fit for more formal occasions such as ceremonies.";
                 }
-                
+
                 document.getElementById("infoModalTitle").innerHTML = modalTitle;
                 document.getElementById("infoModalImg").src = modalImgSrc;
                 document.getElementById("infoModalTxt").innerHTML = modalTxt;
+                // open modal when dress dropped
                 $("#infoModal").modal("toggle");
             }
         </script>
+        <!-- don't know what these do, but they're needed for the modal to open -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

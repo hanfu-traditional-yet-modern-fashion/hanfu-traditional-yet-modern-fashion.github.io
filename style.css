@@ -3,6 +3,7 @@
 }
 
 .navbar .nav-link {
+    /* setting non-active navbar items */
 	font-weight: 200;
     color: rgb(100, 100, 100);
 }
@@ -11,17 +12,7 @@
 	color: white;
 }
 
-.zoom {
-    padding: 50px;
-    transition: transform .2s; /* Animation */
-    /*width: 400px;*/
-    margin: 0 auto;
-}
-  
-.zoom:hover {
-    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-
 .unsaveable {
+    /* doesn't allow saving images */
     pointer-events: none;
 }
